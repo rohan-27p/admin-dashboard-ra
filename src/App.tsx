@@ -1,4 +1,4 @@
-import { Admin, Resource, CustomRoutes } from 'react-admin';
+import { Admin, Resource, CustomRoutes, AuthProvider } from 'react-admin';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { createClient } from '@supabase/supabase-js';
 import {
@@ -18,7 +18,7 @@ const instanceUrl =import.meta.env.VITE_PUBLIC_SUPABASE_URL;
 const apiKey =import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY;
 const supabaseClient = createClient(instanceUrl, apiKey);
 const dataProvider = supabaseDataProvider({ instanceUrl, apiKey, supabaseClient });
-const authProvider = supabaseAuthProvider(supabaseClient, {});
+const authProvider: AuthProvider = supabaseAuthProvider(supabaseClient, {});
 
 export const App = () => (
     <BrowserRouter>
